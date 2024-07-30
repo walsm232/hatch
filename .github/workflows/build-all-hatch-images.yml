@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Build the frontend Docker image
-      run: docker build ./frontend --file frontend/delivery/Dockerfile --tag hatch-ui:$(date +%s)
+      run: docker build ./frontend --file frontend/delivery/Dockerfile --tag hatch-ui:latest
 
     - name: Build the backend Docker image
-      run: docker build ./backend --file backend/delivery/api-server/Dockerfile --tag hatch-api-server:$(date +%s)
+      run: docker build ./backend --file backend/delivery/api-server/Dockerfile --tag hatch-api-server:latest
