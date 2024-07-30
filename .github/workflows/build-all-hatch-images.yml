@@ -15,8 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Build the frontend Docker image
+    - name: Build the frontend UI Docker image
       run: docker build ./frontend --file frontend/delivery/Dockerfile --tag hatch-ui:latest
 
-    - name: Build the backend Docker image
+    - name: Build the backend API Server Docker image
       run: docker build ./backend --file backend/delivery/api-server/Dockerfile --tag hatch-api-server:latest
