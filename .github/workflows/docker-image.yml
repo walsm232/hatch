@@ -1,0 +1,22 @@
+name: Build all Hatch images
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build the frontend Docker image
+      run: docker build ./frontend --file frontend/delivery/Dockerfile --tag hatch-ui:$(date +%s)
+
+    - name: Build the backend Docker image
+      run: docker build ./backend --file backend/delivery/api-server/Dockerfile --tag hatch-api-server:$(date +%s)
